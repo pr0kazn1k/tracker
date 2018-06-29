@@ -5,17 +5,17 @@
     
 1.
     - в файле `track/settings_path.php` меняем константу `_DIR_TRACK_` (line:3)
-    - в файле `track-show/settings_path.php` меняем константу `_DIR_TRACK_` (line:3)
+    - в файле `track-show/default_settings.php` меняем константу `_DIR_TRACK_` (line:3)
     - Переименовываем папке `track`
 
 2.
     - в файле `_DIR_TRACK_/settings_path.php` меняем константу `_DIR_TRACK_COMMON_` (line:4)
-    - в файле `track-show/settings_path.php` меняем константу `_DIR_TRACK_COMMON_` (line:4)
+    - в файле `track-show/default_settings.php` меняем константу `_DIR_TRACK_COMMON_` (line:4)
     - Переименовываем папке `track-common`
       
 3.
     - в файле `_DIR_TRACK_/settings_path.php` меняем константу `_DIR_TRACK_SHOW_` (line:5)
-    - в файле `track-show/settings_path.php` меняем константу `_DIR_TRACK_SHOW_` (line:5)
+    - в файле `track-show/default_settings.php` меняем константу `_DIR_TRACK_SHOW_` (line:5)
     - Переименовываем папке `track-show`
     
 Итоговая ссылка получается `http://tracker.org/_DIR_TRACK_/{Название ссылки в трекере}` - формируется автоматически
