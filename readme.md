@@ -1,18 +1,19 @@
-1. Придумываем новые название папкам
-    - track
-    - track-common
-    - track-show
-2.
+Придумываем новые название папкам
+- track
+- track-common
+- track-show
+    
+1.
     - в файле `track/settings_path.php` меняем константу `_DIR_TRACK_` (line:3)
     - в файле `track-show/settings_path.php` меняем константу `_DIR_TRACK_` (line:3)
     - Переименовываем папке `track`
 
-3.
+2.
     - в файле `_DIR_TRACK_/settings_path.php` меняем константу `_DIR_TRACK_COMMON_` (line:4)
     - в файле `track-show/settings_path.php` меняем константу `_DIR_TRACK_COMMON_` (line:4)
     - Переименовываем папке `track-common`
       
-4.
+3.
     - в файле `_DIR_TRACK_/settings_path.php` меняем константу `_DIR_TRACK_SHOW_` (line:5)
     - в файле `track-show/settings_path.php` меняем константу `_DIR_TRACK_SHOW_` (line:5)
     - Переименовываем папке `track-show`
