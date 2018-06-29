@@ -546,7 +546,7 @@ if (isset($_REQUEST['csrfkey']) && ($_REQUEST['csrfkey'] == CSRF_KEY)) {
             $i = 0;
 
             foreach ($arr_rules as $cur) {
-                $arr['rules'][$i] = array('id' => $cur['id'], 'name' => $cur['name'], 'url' => tracklink() . "/{$cur['name']}/source/campaign-ads");
+                $arr['rules'][$i] = array('id' => $cur['id'], 'name' => $cur['name'], 'url' => tracklink() . "/{$cur['name']}");
 
                 $arr_destinations = array();
                 $default_destination_id = '';

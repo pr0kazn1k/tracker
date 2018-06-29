@@ -218,11 +218,19 @@ $link_name = $track_request[0];
 $str.=$link_name . "\t";
 
 // Link source
-$link_source = $track_request[1];
+if (isset($track_request[1])) {
+    $link_source = $track_request[1];
+} else {
+    $link_source = 'source';
+}
 $str.=$link_source . "\t";
 
 // Link ads name
-$link_ads_name = $track_request[2];
+if (isset($track_request[2])) {
+    $link_ads_name = $track_request[2];
+} else {
+    $link_ads_name = 'campaign-ads';
+}
 $str.=$link_ads_name . "\t";
 
 // Subid

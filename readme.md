@@ -4,11 +4,16 @@
     - Переименовываем папке `track`
 
 2.
-    - в файле `track/settings_path.php` меняем константу `__DIR_TRACK_COMMON__` (line:4)
-    - в файле `track-show/settings_path.php` меняем константу `__DIR_TRACK_COMMON__` (line:4)
+    - в файле `_DIR_TRACK_/settings_path.php` меняем константу `_DIR_TRACK_COMMON_` (line:4)
+    - в файле `track-show/settings_path.php` меняем константу `_DIR_TRACK_COMMON_` (line:4)
     - Переименовываем папке `track-common`
       
 3.
-    - в файле `track/settings_path.php` меняем константу `__DIR_TRACK_COMMON__` (line:5)
-    - в файле `track-show/settings_path.php` меняем константу `__DIR_TRACK_COMMON__` (line:5)
+    - в файле `_DIR_TRACK_/settings_path.php` меняем константу `_DIR_TRACK_SHOW_` (line:5)
+    - в файле `track-show/settings_path.php` меняем константу `_DIR_TRACK_SHOW_` (line:5)
     - Переименовываем папке `track-show`
+    
+Итоговая ссылка получается `http://tracker.org/DIR_TRACK/{Название ссылки в трекере}` - формируется автоматически
+Так же можно добавить два парамета вручную или через интерфейс `http://tracker.org/DIR_TRACK/{Название ссылки в трекере}/{Источник}/{Кампания}`
+
+Например: `http://tracker.org/page/offer1/vk/post`
