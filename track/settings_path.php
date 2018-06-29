@@ -1,16 +1,20 @@
 <?php
 
+define('_DIR_TRACK_', 'track');
+define('_DIR_TRACK_COMMON_', 'track-common');
+define('_DIR_TRACK_SHOW_', 'track-show');
+
 define('_TRACK_VER',           'v1.6');
 
 define('_TRACK_PATH',          dirname (__FILE__));
 define('_TRACK_SETTINGS_PATH', _TRACK_PATH . '/cache');
-define('_TRACK_COMMON_PATH',   dirname (__FILE__) . '/../track-common/' . _TRACK_VER . '/track');
-define('_TRACK_STATIC_PATH',   dirname (__FILE__) . '/../track-common/static');
+define('_TRACK_COMMON_PATH',   dirname (__FILE__) . '/../' . _DIR_TRACK_COMMON_ . '/' . _TRACK_VER . '/track');
+define('_TRACK_STATIC_PATH',   dirname (__FILE__) . '/../'. _DIR_TRACK_COMMON_ .'/static');
 
 define('_TRACK_LIB_PATH',      _TRACK_COMMON_PATH . '/lib');
 define('_CACHE_PATH',          _TRACK_PATH . '/cache');
 define('_CACHE_COMMON_PATH',   _TRACK_PATH . '/cache');
-define('_TRACK_SHOW_COMMON_PATH', dirname (__FILE__) . '/../track-common/' . _TRACK_VER . '/track-show');
+define('_TRACK_SHOW_COMMON_PATH', dirname (__FILE__) . '/../' . _DIR_TRACK_COMMON_ . '/' . _TRACK_VER . '/track-show');
 
 define('_SELF_STORAGE_ENGINE', 'redis');
 
@@ -28,7 +32,7 @@ $port = ($_SERVER["SERVER_PORT"] == "80") ? "" : (":".$_SERVER["SERVER_PORT"]);
 $uri_root = $protocol . "://" . $_SERVER['SERVER_NAME'] . $port;
 
 define('_HTML_ROOT_PATH',      $uri_root . $delta_uri);
-define('_HTML_TRACK_PATH',     $uri_root . $delta_uri . '/track');
+define('_HTML_TRACK_PATH',     $uri_root . $delta_uri . '/' . _DIR_TRACK_);
 
 define('_SELF_TRACK_KEY',      'key123');
 
