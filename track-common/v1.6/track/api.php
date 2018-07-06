@@ -40,7 +40,7 @@ if($act == 'data_get') {
 	if(!in_array($type, array('clicks', 'postback'))) {
 		$out = api_error('Unknown type');
 	} else {
-		$path = _TRACK_PATH . '/cache/' . $type;
+		$path = _GLOBAL_CACHE_ . '/' . $type;
 		$files = dir_files($path, $type);
 		$size = 0;
 		foreach($files as $f) {
@@ -60,7 +60,7 @@ if($act == 'data_get') {
 	if(!in_array($type, array('clicks', 'postback'))) {
 		$out = api_error('Unknown type');
 	} else {
-		$path = _TRACK_PATH . '/cache/' . $type;
+		$path = _GLOBAL_CACHE_ . '/' . $type;
 		$files = dir_files($path, $type);
 		
 		$cnt = 0;

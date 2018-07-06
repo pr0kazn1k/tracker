@@ -88,9 +88,9 @@
 		// Local tracker
 		} else {
 			foreach(array('clicks', 'postback') as $type) {
-				$files = dir_files($track['path'] . '/cache/' . $type, $type);
+				$files = dir_files(_GLOBAL_CACHE_ . '/' . $type, $type);
 				foreach($files as $f) {
-					rename($track['path'] . '/cache/' . $type . '/' . $f, _CACHE_PATH . '/' . $type . '/' . $f . '_' . $n);
+					rename(_GLOBAL_CACHE_ . '/' . $type . '/' . $f, _CACHE_PATH . '/' . $type . '/' . $f . '_' . $n);
 				}
 			}
 		}

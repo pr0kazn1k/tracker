@@ -2496,7 +2496,7 @@ function send2trackers($name, $data) {
             foreach ($tracklist as $track) {
                 $type = substr($track['path'], 0, 4) == 'http' ? 'remote' : 'local';
                 if ($type == 'local') {
-                    $rules_path = $track['path'] . '/cache/rules';
+                    $rules_path = _GLOBAL_CACHE_ . '/rules';
                     if (!is_dir($rules_path)) {
                         mkdir($rules_path);
                         chmod($rules_path, 0777);
@@ -2554,7 +2554,7 @@ function send2trackers($name, $data) {
             foreach ($tracklist as $track) {
                 $type = substr($track['path'], 0, 4) == 'http' ? 'remote' : 'local';
                 if ($type == 'local') {
-                    $outs_path = $track['path'] . '/cache/outs';
+                    $outs_path = _GLOBAL_CACHE_ . '/outs';
                     if (!is_dir($outs_path)) {
                         mkdir($outs_path);
                         chmod($outs_path, 0777);

@@ -200,23 +200,23 @@ class common {
     }
 
     function get_code() {
-        if (is_file(_ROOT_PATH . '/cache/.postback.key')) {
-            $key = file_get_contents(_ROOT_PATH . '/cache/.postback.key');
+        if (is_file(_GLOBAL_CACHE_ . '/.postback.key')) {
+            $key = file_get_contents(_GLOBAL_CACHE_ . '/.postback.key');
             return $key;
         } else {
             $key = substr(md5(__FILE__), 3, 10);
-            file_put_contents(_ROOT_PATH . '/cache/.postback.key', $key);
+            file_put_contents(_GLOBAL_CACHE_ . '/.postback.key', $key);
             return $key;
         }
     }
 
     function get_pixelcode() {
-        if (is_file(_ROOT_PATH . '/cache/.pixel.key')) {
-            $key = file_get_contents(_ROOT_PATH . '/cache/.pixel.key');
+        if (is_file(_GLOBAL_CACHE_ . '/.pixel.key')) {
+            $key = file_get_contents(_GLOBAL_CACHE_ . '/.pixel.key');
             return $key;
         } else {
             $key = substr(md5(__FILE__ . 'TraCKKERPIxxel'), 3, 10);
-            file_put_contents(_ROOT_PATH . '/cache/.pixel.key', $key);
+            file_put_contents(_GLOBAL_CACHE_ . '/.pixel.key', $key);
             return $key;
         }
     }
@@ -226,11 +226,11 @@ class common {
             return;
         }
 
-        if (!is_dir(_ROOT_PATH . '/cache/pblogs/')) {
-            mkdir(_ROOT_PATH . '/cache/pblogs');
+        if (!is_dir(_GLOBAL_CACHE_ . '/pblogs/')) {
+            mkdir(_GLOBAL_CACHE_ . '/pblogs');
         }
 
-        $log = fopen(_ROOT_PATH . '/cache/pblogs/.' . $net . date('Y-m-d') . '.txt', 'a+');
+        $log = fopen(_GLOBAL_CACHE_ . '/pblogs/.' . $net . date('Y-m-d') . '.txt', 'a+');
 
         if ($log) {
             fwrite($log, '[' . date('Y-m-d H:i:s') . '] [POST] ' . var_export($post));

@@ -6,14 +6,16 @@ define('_DIR_TRACK_SHOW_', 'track-show');
 
 define('_TRACK_VER',           'v1.6');
 
+define('_GLOBAL_CACHE_', 'D:/OSPanel/domains/tracker.org/_cache');
+
 define('_TRACK_PATH',          dirname (__FILE__));
-define('_TRACK_SETTINGS_PATH', _TRACK_PATH . '/cache');
+define('_TRACK_SETTINGS_PATH', _GLOBAL_CACHE_);
 define('_TRACK_COMMON_PATH',   dirname (__FILE__) . '/../' . _DIR_TRACK_COMMON_ . '/' . _TRACK_VER . '/track');
 define('_TRACK_STATIC_PATH',   dirname (__FILE__) . '/../'. _DIR_TRACK_COMMON_ .'/static');
 
 define('_TRACK_LIB_PATH',      _TRACK_COMMON_PATH . '/lib');
-define('_CACHE_PATH',          _TRACK_PATH . '/cache');
-define('_CACHE_COMMON_PATH',   _TRACK_PATH . '/cache');
+define('_CACHE_PATH',          _GLOBAL_CACHE_);
+define('_CACHE_COMMON_PATH',   _GLOBAL_CACHE_);
 define('_TRACK_SHOW_COMMON_PATH', dirname (__FILE__) . '/../' . _DIR_TRACK_COMMON_ . '/' . _TRACK_VER . '/track-show');
 
 define('_SELF_STORAGE_ENGINE', 'redis');
