@@ -212,6 +212,22 @@ function ip_in_range($ip, $ip_start, $ip_end = '') {
 	return false;
 }
 
+// Проверка на повторый клик по IP
+function ip_check_repeat_click($ip) {
+    try {
+        require_once _TRACK_SHOW_COMMON_PATH . "/DatabaseConnection.php";
+        require_once _TRACK_LIB_PATH . '/mysql-backport/mysql.php';
+        require_once _TRACK_LIB_PATH . '/php5-backport/string.php';
+
+        $sql = "select count(user_ip) as total from tbl_clicks where user_ip='" . mysql_real_escape_string($ip) . "'";
+        $result = mysql_fetch_assoc(mysql_query($sql));
+
+        return (isset($result['total']) && $result['total'] > 0);
+    } catch (Exception $e) {}
+
+    return false;
+}
+
 /**
  * Лог ошибок
  */

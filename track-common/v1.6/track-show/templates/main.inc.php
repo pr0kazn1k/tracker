@@ -1,5 +1,4 @@
 <?php if (!$include_flag){exit();} ?>
-<!-- CPA Tracker, http://www.cpatracker.ru -->
 <!DOCTYPE html>
 <html lang="en">
     <head>

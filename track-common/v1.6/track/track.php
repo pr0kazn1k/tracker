@@ -345,7 +345,11 @@ if (count($arr_rules) == 0) {
                     $flag = true;
                 }
             } elseif ($key == 'ip') {
-                if (check_ip($internal_value['value'], $user_params[$key])) {
+                // Если нужна проверка по IP на повторный клик
+                if (
+                    (check_ip($internal_value['value'], $user_params[$key]))
+                    || ($internal_value['value'] == '{repeat}' && ip_check_repeat_click($user_params[$key]))
+                ) {
                     $relevant_params[] = $internal_value;
                     if (!$relevant_param_order) {
                         $relevant_param_order = $internal_value['order'];
