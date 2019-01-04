@@ -360,6 +360,29 @@ if (count($arr_rules) == 0) {
                     }
                     $flag = true;
                 }
+            } elseif ($key == 'uniqueclick') {
+                switch ($internal_value['value']) {
+                    case '{all}':
+                        $cookie_key = 'all';
+                        break;
+                    case '{link}':
+                        $cookie_key = $link_name;
+                        break;
+                    default:
+                        $cookie_key = false;
+                }
+
+                if ($cookie_key && check_unique_click($cookie_key)) {
+                    $relevant_params[] = $internal_value;
+                    if (!$relevant_param_order) {
+                        $relevant_param_order = $internal_value['order'];
+                    } else {
+                        if ($relevant_param_order > $internal_value['order']) {
+                            $relevant_param_order = $internal_value['order'];
+                        }
+                    }
+                    $flag = true;
+                }
             } else {
                 if (strripos($internal_value['value'], $user_params[$key]) !== false) {
                     $relevant_params[] = $internal_value;

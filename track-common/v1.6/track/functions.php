@@ -228,6 +228,22 @@ function ip_check_repeat_click($ip) {
     return false;
 }
 
+// Провка на уникальность перехода по куке.
+function check_unique_click($cookie_key) {
+    $cookie_key = 'cpa_uniqueclick_' . $cookie_key;
+
+    $result = isset($_COOKIE[$cookie_key]);
+
+    $cookie_time = $_SERVER['REQUEST_TIME'] + (60 * 60 * 24 * 365);
+    setcookie($cookie_key, 1, $cookie_time, "/", $_SERVER['HTTP_HOST']);
+
+    if ($cookie_key != 'cpa_uniqueclick_all') {
+        setcookie('cpa_uniqueclick_all', 1, $cookie_time, "/", $_SERVER['HTTP_HOST']);
+    }
+
+    return $result;
+}
+
 /**
  * Лог ошибок
  */

@@ -168,6 +168,16 @@ rule_table.find('input.select-sources').first().select2('val',$('#rule'+rule_id)
                 rule_table.find('input.select-link').select2({data: {results: dictionary_links}, width: 'copy', containerCssClass: 'form-control select2'});               
                 rule_table.find('input.select-link').first().select2('val',$('#rule'+rule_id).find('[name = default_out_id]').val()) ;           
             });
+            $('.adduniqueclick').on("click", function(e) {
+                e.preventDefault();
+                var template = $('#referTemplate').html();
+                var rule_id = $(this).parent().parent().attr('id');
+                var rule_table =  $('#rule' + rule_id + ' tbody');
+                rule_table.prepend(template);
+                var tr = rule_table.find('tr').first();
+                prepareTextInput(tr,'uniqueclick','Unique click');
+                rule_table.find('input.select-link').first().select2('val',$('#rule'+rule_id).find('[name = default_out_id]').val()) ;
+            });
              $('.addcity').on("click", function(e) {
                 e.preventDefault();
                 var template = $('#referTemplate').html();
@@ -922,6 +932,7 @@ rule_table.find('input.select-sources').first().select2('val',$('#rule'+rule_id)
                                     <li><a class="addcountry" href="#">Страна</a></li>
                                     <li><a class="addlang" href="#">Язык браузера</a></li>
                                     <li><a class="addrefer" href="#">Реферер</a></li>
+                                    <li><a class="adduniqueclick" href="#">Unique click</a></li>
                                     <li><a class="addcity" href="#">Город</a></li>
                                     <li><a class="addregion" href="#">Регион</a></li>
                                     <li><a class="addprovider" href="#">Провайдер</a></li>

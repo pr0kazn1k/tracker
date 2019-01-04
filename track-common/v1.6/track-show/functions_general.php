@@ -2074,6 +2074,7 @@ function get_countries_data_js() {
 function inputtype($type) {
     switch ($type) {
         case 'referer':
+        case 'uniqueclick':
         case 'city':
         case 'region':
         case 'provider':
