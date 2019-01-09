@@ -2075,6 +2075,7 @@ function inputtype($type) {
     switch ($type) {
         case 'referer':
         case 'uniqueclick':
+        case 'host':
         case 'city':
         case 'region':
         case 'provider':

@@ -360,6 +360,20 @@ if (count($arr_rules) == 0) {
                     }
                     $flag = true;
                 }
+            } elseif ($key == 'host') {
+                $host = gethostbyaddr($ip);
+
+                if ($host && stripos($host, $internal_value['value']) !== false) {
+                    $relevant_params[] = $internal_value;
+                    if (!$relevant_param_order) {
+                        $relevant_param_order = $internal_value['order'];
+                    } else {
+                        if ($relevant_param_order > $internal_value['order']) {
+                            $relevant_param_order = $internal_value['order'];
+                        }
+                    }
+                    $flag = true;
+                }
             } elseif ($key == 'uniqueclick') {
                 switch ($internal_value['value']) {
                     case '{all}':
