@@ -6,7 +6,7 @@ define('_DIR_TRACK_SHOW_', 'track-show');
 
 define('_TRACK_VER',           'v1.6');
 
-define('_GLOBAL_CACHE_', dirname (__FILE__) . '/../_cache');
+define('_GLOBAL_CACHE_', dirname (__FILE__) . '/../../_cache');
 
 define('_TRACK_PATH',          dirname (__FILE__));
 define('_TRACK_SETTINGS_PATH', _GLOBAL_CACHE_);
