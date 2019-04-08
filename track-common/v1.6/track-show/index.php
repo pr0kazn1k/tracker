@@ -801,7 +801,7 @@ if (isset($_REQUEST['csrfkey']) && ($_REQUEST['csrfkey'] == CSRF_KEY)) {
             $rule_values = $_REQUEST['rule_value'];
 
             //$pattern = '/(^[a-z0-9_]+$)/';
-            $pattern = '/^[ЎўІіёa-zA-Zа-яА-Я0-9_-]*$/u';
+            $pattern = '/^[ЎўІіёa-zA-Zа-яА-Я0-9_-{}]*$/u';
             foreach ($rules_item as $key => $rull) {
                 if ($rull['type'] == 'get') {
                     $get_arr = explode('=', $rull['val']);

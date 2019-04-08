@@ -305,11 +305,10 @@ if (count($arr_rules) == 0) {
             } elseif ($key == 'referer') {
                 $val = strtolower($internal_value['value']);
 
-                // дописываем http:// на случай, если юзер забыл и это не Google Market
-                if (substr($val, 0, 7) != 'http://' and substr($val, 0, 9) != 'market://' && $val != '{empty}')
-                    $val = 'http://' . $val;
-
-                if ((trim($user_params[$key]) != '' and strtolower(substr($user_params[$key], 0, strlen($val))) == $val) || ($val == '{empty}' && is_null($user_params[$key]))) {
+                if (
+                    (trim($user_params[$key]) != '' && strpos($user_params[$key], $val) !== false)
+                    || ($val == '{empty}' && is_null($user_params[$key]))
+                ){
                     $relevant_params[] = $internal_value;
                     if (!$relevant_param_order) {
                         $relevant_param_order = $internal_value['order'];
@@ -491,13 +490,11 @@ if (!is_dir(_CACHE_PATH . '/clicks')) {
 
 file_put_contents(_CACHE_PATH . '/clicks/' . '.clicks_' . date('Y-m-d-H-i'), $str, FILE_APPEND | LOCK_EX);
 
-// Redirect
-if ($_REQUEST['blind'] === '1') {
-    // Meta-refresh
-    echo '<!doctype html><html lang=en><head><meta http-equiv="refresh" content="0;URL=' . $redirect_link . '" /><title>Default</title></head><body></body></html>';
-} else {
-    // Location
-    header("Location: " . $redirect_link);
+$redir = explode('//', $redirect_link);
+if (isset($redir[1])) {
+    $redirect_link = '//' . $redir[1];
 }
+
+header("Location: " . $redirect_link);
+
 exit();
-?>
