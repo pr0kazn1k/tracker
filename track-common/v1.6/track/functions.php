@@ -219,7 +219,22 @@ function ip_check_repeat_click($ip) {
         require_once _TRACK_LIB_PATH . '/mysql-backport/mysql.php';
         require_once _TRACK_LIB_PATH . '/php5-backport/string.php';
 
-        $sql = "select count(user_ip) as total from tbl_clicks where user_ip='" . mysql_real_escape_string($ip) . "'";
+        $settings_file=_TRACK_SETTINGS_PATH.'/settings.php';
+        $str=file_get_contents($settings_file);
+        $str=str_replace('<?php exit(); ?>', '', $str);
+        $arr_settings=unserialize($str);
+
+        $_DB_LOGIN=$arr_settings['login'];
+        $_DB_PASSWORD=$arr_settings['password'];
+        $_DB_NAME=$arr_settings['dbname'];
+        $_DB_HOST=$arr_settings['dbserver'];
+
+        // Connect to DB
+
+        mysql_connect($_DB_HOST, $_DB_LOGIN, $_DB_PASSWORD) or die("Could not connect: " .mysql_error());
+        mysql_select_db($_DB_NAME);
+
+        $sql = "select count(user_ip) as total from tbl_clicks where user_ip='" . $ip . "'";
         $result = mysql_fetch_assoc(mysql_query($sql));
 
         return (isset($result['total']) && $result['total'] > 0);
